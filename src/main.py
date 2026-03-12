@@ -44,9 +44,9 @@ def main(page: ft.Page):
                     ft.NavigationBarDestination(icon=ft.Icons.HOME, label="Home"),
                     ft.NavigationBarDestination(icon=ft.Icons.CALENDAR_MONTH, label="Log"),
                     ft.NavigationBarDestination(
-                        icon=ft.Icons.SHOP,
-                        selected_icon=ft.Icons.SHOPPING_CART,
-                        label="Shop",
+                        #icon=ft.Icons.SHOP,
+                        #selected_icon=ft.Icons.SHOPPING_CART,
+                        #label="Shop",
                     ),
                     ft.NavigationBarDestination(icon=ft.Icons.STAR, label="AI"),
                     ft.NavigationBarDestination(
@@ -56,8 +56,12 @@ def main(page: ft.Page):
                     ),
                 ],
             ),
+            floating_action_button=ft.FloatingActionButton(
+                icon=ft.Icons.SHOP, bgcolor= ft.Colors.BROWN_600, shape=ft.CircleBorder(), elevation=0, # 그림자 제거
+            ),
+            floating_action_button_location=ft.FloatingActionButtonLocation.CENTER_TOP, 
             content=ft.Container(),
-            height=150,
+            height=60,
             width=360,
         )
         return pagelet
@@ -81,7 +85,8 @@ def main(page: ft.Page):
                             bgcolor=ft.Colors.BLACK,
                             shape=ft.BoxShape.CIRCLE,
                             image=ft.DecorationImage(
-                                src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201901/20/28017477-0365-4a43-b546-008b603da621.jpg",
+                                # src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201901/20/28017477-0365-4a43-b546-008b603da621.jpg",
+                                src="대추.jpg",
                                 fit=ft.ImageFit.COVER
                             ),
                         ),
@@ -92,7 +97,8 @@ def main(page: ft.Page):
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     controls=[
                         ft.Row(
-                            alignment=ft.MainAxisAlignment.CENTER,
+                            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                            width=360,
                             spacing=8,
                             controls=[
                                 ft.Container(
@@ -100,7 +106,7 @@ def main(page: ft.Page):
                                     padding=2,
                                     # alignment=ft.Alignment.CENTER,
                                     bgcolor=ft.Colors.AMBER_200,
-                                    width=150,
+                                    width=115,
                                     height=70,
                                     border_radius=10,
                                 ),
@@ -109,7 +115,16 @@ def main(page: ft.Page):
                                     padding=2,
                                     # alignment=ft.Alignment.CENTER,
                                     bgcolor=ft.Colors.AMBER_200,
-                                    width=150,
+                                    width=115,
+                                    height=70,
+                                    border_radius=10,
+                                ),
+                                ft.Container(
+                                    content=ft.Text("사료잔량"),
+                                    padding=2,
+                                    # alignment=ft.Alignment.CENTER,
+                                    bgcolor=ft.Colors.AMBER_200,
+                                    width=115,
                                     height=70,
                                     border_radius=10,
                                 ),
@@ -117,15 +132,15 @@ def main(page: ft.Page):
                         ),
                         ft.Container(
                             ft.ElevatedButton(
-                                "기록요약",
+                                "오늘 기록",
                                 style=ft.ButtonStyle(
                                     shape=ft.RoundedRectangleBorder(radius=0)
                                 ),
                             ),
-                                padding=2,
+                                
                                 # alignment=ft.Alignment.CENTER,
                                 # bgcolor=ft.Colors.AMBER_200,
-                                width=300,
+                                width=250,
                                 height=50,
                                 border_radius=10,
                             ),
@@ -140,109 +155,101 @@ def main(page: ft.Page):
                         ft.Container(
                             content=ft.Column(
                                 [
-                                    ft.Row(
-                                        [
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "밥주기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
+                                ft.Row(
+                                    [
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "밥주기",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
+                                            ),
+                                                
+                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
+                                        
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "물주기",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                            
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "약먹기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
-                                                ),
-                                                    margin = 10,
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
-                                                ),
+                                            ),
+                                                margin = 5,
+                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
 
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "물주기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "건강",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
-                                                ),
-                                        ],
-                                        alignment=ft.MainAxisAlignment.CENTER,  # 추가
-                                        spacing=8,   # 추가
-                                    ),
+                                            ),
+                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
+                                    ],
+                                    alignment=ft.MainAxisAlignment.CENTER,  # 추가
 
-                                    ft.Row(
-                                        [
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "밥주기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
+                                ),
+                                ft.Row(
+                                    [
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "활동",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
+                                            ),
+                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
+                                        
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "위생",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                            
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "약먹기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
-                                                ),
-                                                    margin = 10,
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
-                                                ),
+                                            ),
+                                                margin = 5,                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
 
-                                            ft.Container(
-                                                ft.ElevatedButton(
-                                                    "물주기",
-                                                    style=ft.ButtonStyle(
-                                                        shape=ft.RoundedRectangleBorder(radius=0)
-                                                    ),
+                                        ft.Container(
+                                            ft.ElevatedButton(
+                                                "배변",
+                                                style=ft.ButtonStyle(
+                                                    shape=ft.RoundedRectangleBorder(radius=0)
                                                 ),
-                                                    padding=2,
-                                                    # alignment=ft.Alignment.CENTER,
-                                                    # bgcolor=ft.Colors.AMBER_200,
-                                                    width=70,
-                                                    height=60,
-                                                    border_radius=10,
-                                                ),
-                                        ],
-                                        alignment=ft.MainAxisAlignment.CENTER,  # 추가
-                                        spacing=8,   # 추가
-                                    ),
+                                            ),
+                                                # alignment=ft.Alignment.CENTER,
+                                                # bgcolor=ft.Colors.AMBER_200,
+                                                width=70,
+                                                height=60,
+                                                border_radius=10,
+                                            ),
+                                    ],
+                                    alignment=ft.MainAxisAlignment.CENTER,  # 추가
+                                ),
                                 ],
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,  # 추가
                             )
